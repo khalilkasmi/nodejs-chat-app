@@ -3,7 +3,7 @@ var socket = require('socket.io');
 
 var app = express();
 
-var server = app.listen(1234,'105.158.212.124',function(){
+var server = app.listen(5000,function(){
     console.log('listening to requests on port 8080');
 });
 
