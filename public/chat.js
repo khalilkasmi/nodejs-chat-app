@@ -1,5 +1,5 @@
 
-var socket = io.connect('http://localhost:'+process.env.PORT || 5000);
+var socket = io.connect('http://localhost:'+ process.env.PORT || 5000);
 
 var handle  = document.getElementById('handle');
 var message = document.getElementById('message');
