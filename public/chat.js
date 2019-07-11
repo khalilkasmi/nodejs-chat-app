@@ -1,4 +1,5 @@
-var socket = io.connect('http://localhost:3000');
+
+var socket = io.connect('http://localhost:'+process.env.PORT || 5000);
 
 var handle  = document.getElementById('handle');
 var message = document.getElementById('message');
@@ -21,10 +22,10 @@ message.addEventListener('keypress',function(){
 
 socket.on('chat',function(data){
     feedback.innerHTML = " ";
-    if(data.handle === handle.value) {
-        output.innerHTML += ' <p style="background-color:#f3eff4;"><strong>me</strong> ' + data.msg + '</p>';
+    if(data.from === handle.value) {
+        output.innerHTML += ' <p style="background-color:#f3eff4;"><strong>me</strong> ' + data.message + '</p>';
     }else{
-    output.innerHTML += ' <p><strong>'+data.handle+'</strong> : ' + data.msg + '</p>'; 
+    output.innerHTML += ' <p><strong>'+data.from+'</strong> : ' + data.message + '</p>'; 
     }
 });
 
