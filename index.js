@@ -4,7 +4,7 @@ var socket = require('socket.io');
 var app = express();
 
 var server = app.listen(3000,function(){
-    console.log('listening to requests on port 8080');
+    console.log('listening to requests on port 3000');
 });
 
 app.use(express.static('public'));
