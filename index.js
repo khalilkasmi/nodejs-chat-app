@@ -5,11 +5,12 @@ var mongoose = require('mongoose');
 
 var app = express();
 
-var server = app.listen(process.env.PORT || 5000 ,function(){
+var server = app.listen(process.env.PORT || 5000,function(){
     console.log('listening to requests on port 5000');
 });
-
-mongoose.connect('mongodb+srv://khalil:kasmi@cluster0-z7jmu.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://khalil:kasmi@cluster0-z7jmu.mongodb.net/test?retryWrites=true&w=majority').catch(function (reason) {
+    console.log('Unable to connect to the mongodb instance. Error: ', reason);
+});
 
 var messageSchema = new mongoose.Schema({
     from: String,
